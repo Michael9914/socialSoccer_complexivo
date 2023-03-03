@@ -1,0 +1,100 @@
+<div class=" col-12 text-center p-3" style="background-image:linear-gradient(to right, #0648ff, #ffffff)">
+  <br>
+  <h5 class="card-title">Formulario Equipos</h5>
+  <br>
+
+  <div class="row">
+
+    <!-- FORM -->
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body p-4">
+
+
+          <!-- FORM -->
+          <form #teamForm="ngForm" (ngSubmit)="addTeam(teamForm)">
+            <!-- THE Id's Team -->
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="teamService.selectedTeam._id">
+            <label>Nombres de Representante</label>
+
+            <div class="form-group">
+              <input type="text" name="representativeName" #name="ngModel"
+                [(ngModel)]="teamService.selectedTeam.representativeName" placeholder="Enter your FullName"
+                class="form-control">
+            </div>
+            <br>
+            <label>Nombre de Equipo</label>
+
+            <div class="form-group">
+              <input type="text" name="nameOfTeam" #name="ngModel" [(ngModel)]="teamService.selectedTeam.nameOfTeam"
+                placeholder="Enter your Team" class="form-control">
+            </div>
+            <br>
+
+
+
+            <!--     <div class="form-group">
+                <input type="text" name = "hi" #name="ngModel" [(ngModel)]="teamService.selectedTeam.email"
+                  placeholder="Enter email" class="form-control">
+              </div>
+ -->
+            <label>Número de telefono del Representante</label>
+
+            <div class="form-group">
+              <input type="number" name="phone" #name="ngModel" [(ngModel)]="teamService.selectedTeam.phone"
+                placeholder="Enter your Phone" class="form-control">
+            </div>
+            <br>
+            <label>Numero de Cedula</label>
+
+            <div class="form-group">
+              <input type="number" name="identificationCard" #name="ngModel"
+                [(ngModel)]="teamService.selectedTeam.identificationCard" placeholder="Enter your IdentificationCard"
+                class="form-control">
+            </div>
+
+            <br><br>
+            <button class="btn btn-secondary">Save</button>
+            <br><br>
+            <button class="btn btn-primary mr-2" (click)="resetForm(teamForm)">Clean</button>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class=" card col-md-8">
+      <h3 class="card-title"> </h3>
+
+      <table class="table table-striped">
+        <thead>
+          <th>Nombre del Equipo</th>
+          <th>Nombre del Representante del Equipo</th>
+          <th>Cedula del Representante</th>
+          <th>Telefono del Representante</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of teamService.teams">
+            <td>{{ team.nameOfTeam }}</td>
+            <td>{{ team.representativeName }}</td>
+            <td>{{ team.identificationCard }}</td>
+            <td>{{ team.phone }}</td>
+
+            <td>
+              <button (click)="editTeam(team)" class="btn btn-primary">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+
+              <button (click)="deleteTeam(team._id, teamForm)" class="btn btn-danger">
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br>

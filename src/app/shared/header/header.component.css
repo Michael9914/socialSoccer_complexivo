@@ -1,0 +1,14 @@
+img.img-responsive {
+    width: 170px;
+    height: 80px;
+  }
+
+  .logo{
+    height: 25px;
+    width: 25px;
+    margin-top: 20px;
+}
+.title{
+  margin-top: 25px;
+  text-decoration: none;
+}

@@ -1,0 +1,86 @@
+<br>
+<div class=" text-center p-3 ">
+  <br>
+  <h3 class="card-title" style="border-bottom: 1px solid rgb(105, 144, 252); border-radius: 10px; color: rgb(0, 0, 0);">
+    Bienvenid@s a
+    SOCIAL SOCCER</h3>
+  <br>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner" style="border-radius: 10px;">
+      <div class="carousel-item active">
+        <img style="width: 500px; height: 600px;"
+          src="https://www.juventus.com/images/image/private/t_editorial_landscape_12_desktop/f_auto/dev/nyuf6tne3npisv92zetr.jpg"
+          class="d-block w-100" alt="...">
+
+      </div>
+      <div class="carousel-item">
+        <img style="width: 500px; height: 600px;"
+          src="https://cnnespanol.cnn.com/wp-content/uploads/2021/08/210805215709-pba-messi-full-169.jpg?quality=100&strip=info"
+          class="d-block w-100" alt="...">
+
+      </div>
+      <div class="carousel-item">
+        <img style="width: 500px; height: 600px;"
+          src="https://images.clarin.com/2021/08/10/neymar-messi-y-mbappe-de____crlePQ8-_1200x630__1.jpg"
+          class="d-block w-100" alt="...">
+
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="accordion" id="accordionExample">
+    <br>
+    <h5 class="card-title"
+      style="border-bottom: 1px solid rgb(105, 144, 252); border-radius: 10px; color:  rgb(0, 0, 0);">PRONÓSTICOS DE
+      LOS PARTIDOS</h5>
+    <br>
+    <div class="offset-2 ">
+      <div class="row col-10 text-center">
+        <div *ngFor="let vocalResult of vocalResultService.vocalResults" class="accordion-item row col-6"
+          style="border-radius: 10px;">
+          <!--       <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button text-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                {{ vocalResult.team1 }} vs {{ vocalResult.team2 }}
+            </button>
+        </h2> -->
+          <div id="collapseOne" class="accordion-collapse collapse show " aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <h5> {{ vocalResult.team1 }} {{ vocalResult.goals1 }} vs {{ vocalResult.goals2 }} {{
+                vocalResult.team2 }} </h5><br>
+
+              <strong>{{ vocalResult.CardsRed1 }}-</strong> <strong style="color: red;">Tarjetas Rojas</strong>
+              <strong>-{{ vocalResult.CardsRed2 }}</strong><br>
+              <strong>{{ vocalResult.CardsYellow1 }}-</strong><strong style="color: rgba(165, 168, 0, 0.863);">Tarjetas
+                Amarillas</strong> <strong>-{{
+                vocalResult.CardsYellow2 }}</strong><br>
+              <strong>{{ vocalResult.changes1 }}-</strong> <strong style="color: black;"> Cambios</strong><strong>-{{
+                vocalResult.changes2
+                }}</strong><br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

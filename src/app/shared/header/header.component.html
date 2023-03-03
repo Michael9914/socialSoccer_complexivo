@@ -1,0 +1,58 @@
+<!-- ============================================================== -->
+<!-- Topbar header - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<header class="topbar">
+  <nav class="navbar top-navbar navbar-expand-md navbar-light">
+      <!-- ============================================================== -->
+      <!-- Logo -->
+      <!-- ============================================================== -->
+
+      <!-- ============================================================== -->
+      <!-- End Logo -->
+      <!-- ============================================================== -->
+      <div class="navbar-collapse">
+          <!-- ============================================================== -->
+          <!-- toggle and nav items -->
+          <!-- ============================================================== -->
+          <ul class="navbar-nav mr-auto">
+              <!-- This is  -->
+              <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+              <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+              <li class="nav-item hidden-sm-down"></li>
+              <a class="navbar-brand" routerLink="/dashboard">
+                <img src="../../../assets/images/pelota.png" width="30" height="30" class="logo" alt="">
+            </a>
+            <a routerLink="/dashboard" class="title" style="color: black;">
+                Social Soccer
+            </a>
+          </ul>
+          <!-- ============================================================== -->
+          <!-- User profile and search -->
+          <!-- ============================================================== -->
+          <ul class="navbar-nav my-lg-0">
+
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{usuario.nombre }} <img [src]="usuario.img | imagen" alt="user" class="profile-pic" /></a>
+                  <div class="dropdown-menu dropdown-menu-right animated fadeIn fast">
+                      <ul class="dropdown-user">
+                          <li>
+                              <div class="dw-user-box">
+                                  <div class="u-img"><img [src]="usuario.img | imagen" alt="user"></div>
+                                  <div class="u-text">
+                                      <h4>{{usuario.nombre}}</h4>
+                                      <p class="text-muted">{{usuario.email}}</p><a [routerLink]="['/dashboard/perfil']" routerLinkActive="router-link-active"  class="btn btn-rounded btn-danger btn-sm">Ver Perfil</a></div>
+                              </div>
+                          </li>
+                          <li role="separator" class="divider"></li>
+                          <li role="separator" class="divider"></li>
+                                  <li><a href="javascript:void()" (click)="cerrarSesion()"><i class="fa fa-power-off" ></i> Cerrar Sesión</a></li>
+                      </ul>
+                  </div>
+              </li>
+          </ul>
+      </div>
+  </nav>
+</header>
+<!-- ============================================================== -->
+<!-- End Topbar header -->
+<!-- ============================================================== -->

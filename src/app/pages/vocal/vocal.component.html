@@ -1,0 +1,148 @@
+<br><br>
+
+<div class="card col-12 text-center p-3" style="background-image:linear-gradient(to right, #0648ff, #ffffff)">
+  <br>
+  <h5 class="card-title">Formulario Vocalia</h5>
+  <br>
+
+  <div class="row">
+
+    <!-- FORM -->
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body p-4">
+
+
+          <!-- FORM -->
+          <form #vocaliaForm="ngForm" (ngSubmit)="addVocalia(vocaliaForm)">
+            <!-- THE Id's Vocalia -->
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="vocalService.selectedVocalia._id">
+            <label>Escojer equipo</label>
+            <div class="form-group">
+              <select [(ngModel)]="vocalService.selectedVocalia.team" name="team" class="form-control ">
+                <option *ngFor="let team of teamService.teams" value="{{team.nameOfTeam}}">{{team.nameOfTeam}}</option>
+
+              </select>
+            </div>
+            <br>
+            <label>Nombre del Jugador</label>
+            <div class="form-group">
+              <input type="text" name="nameOfPlayer" #name="ngModel"
+                [(ngModel)]="vocalService.selectedVocalia.nameOfPlayer" placeholder="Enter your FullName"
+                class="form-control">
+            </div>
+            <br>
+            <label>Numero de camiseta</label>
+
+            <div class="form-group">
+              <input type="number" name="numberOfTShirt" #name="ngModel"
+                [(ngModel)]="vocalService.selectedVocalia.numberOfTShirt" placeholder="Enter your numberoftshirt"
+                class="form-control" value="NINGUNA">
+            </div>
+            <br>
+            <label>Cambios</label>
+
+            <div class="form-group">
+              <select [(ngModel)]="vocalService.selectedVocalia.changes" name="changes" class="form-control ">
+                <option value="NO">No</option>
+                <option value="SI">Si</option>
+
+              </select>
+              <!--    <input type="text" name="role" #name="ngModel" [(ngModel)]="vocaliaService.selectedVocalia.role"
+                placeholder="Enter your Role" class="form-control"> -->
+            </div>
+
+            <br>
+            <label>Número de camiseta para el cambio</label>
+
+            <div class="form-group">
+              <input type="number" name="numberOfChanges" #name="ngModel"
+                [(ngModel)]="vocalService.selectedVocalia.numberOfChanges" placeholder="Enter your numberOfChanges"
+                class="form-control">
+            </div>
+
+
+            <!--    <div class="form-group">
+                <input type="number" name="changes" #name="ngModel" [(ngModel)]="vocalService.selectedVocalia.changes"
+                  placeholder="Enter your changes" class="form-control">
+              </div> -->
+            <br>
+
+
+
+            <!--     <div class="form-group">
+                <input type="text" name = "hi" #name="ngModel" [(ngModel)]="vocaliaService.selectedVocalia.email"
+                  placeholder="Enter email" class="form-control">
+              </div>
+ --> <label>Tarjetas</label>
+
+            <div class="form-group">
+              <select [(ngModel)]="vocalService.selectedVocalia.card" name="card" class="form-control ">
+                <option value="NINGUNO">NINGUNO</option>
+                <option value="TARJETA_ROJA">Tarjeta Roja</option>
+                <option value="TARJETA_AMARILLA">Tarjeta amarilla</option>
+
+              </select>
+              <!--    <input type="text" name="role" #name="ngModel" [(ngModel)]="vocaliaService.selectedVocalia.role"
+                placeholder="Enter your Role" class="form-control"> -->
+            </div>
+
+            <br>
+            <label>Goles</label>
+
+            <div class="form-group">
+              <input type="number" name="goals" #name="ngModel" [(ngModel)]="vocalService.selectedVocalia.goals"
+                placeholder="Enter your goals" class="form-control">
+            </div>
+            <br>
+
+            <br><br>
+            <button class="btn btn-secondary">Save</button>
+            <br><br>
+
+
+          </form>
+          <button class="btn btn-primary mr-2" (click)="resetForm(vocaliaForm)">Clean</button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class=" card col-md-8">
+      <h3 class="card-title"> </h3>
+
+      <table class="table table-striped">
+        <thead>
+          <th>Equipo</th>
+          <th>Jugador</th>
+          <th>Número</th>
+          <th>Tarjetas</th>
+          <th>Goles</th>
+          <th>Número para cambio</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vocalia of vocalService.vocalias">
+            <td>{{ vocalia.team }}</td>
+            <td>{{ vocalia.nameOfPlayer }}</td>
+            <td>{{ vocalia.numberOfTShirt }}</td>
+            <td>{{ vocalia.card }}</td>
+            <td>{{ vocalia.goals }}</td>
+            <td>{{ vocalia.numberOfChanges }}</td>
+
+            <td>
+              <button (click)="editVocal(vocalia)" class="btn btn-primary">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+
+              <button (click)="deleteVocalia(vocalia._id, vocaliaForm)" class="btn btn-danger">
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br>

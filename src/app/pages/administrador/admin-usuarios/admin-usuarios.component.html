@@ -1,0 +1,179 @@
+<!-- <div class="row animated fadeIn" *ngIf="cargando">
+
+  <div class="col-sm-12">
+
+    <div class="alert alert-warning text-center">
+      <strong>Cargando</strong>
+      <br>
+      <i class="fa fa-refresh fa-spin fa-2x"></i>
+      <br>
+      <span>Espere por favor</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="row animated fadeIn" *ngIf="!cargando">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <h3 class="card-title">Usuarios registrados ( <small>{{totalRegistros }}</small> )</h3>
+
+
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Role</th>
+
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let usuario of usuarios let user of userService.users">
+              <td class="w70">
+                <img [src]="usuario.img | imagen" class="img-50 img-circle pointer">
+              </td>
+              <td>
+                {{ user.nombre }}
+              </td>
+              <td>
+                {{ usuario.email }}
+              </td>
+              <td>
+
+                <select (change)="guardarUsuario( usuario )" [(ngModel)]="usuario.role" name="role" class="form-control"
+                  [ngClass]="{'bg-danger text-white':usuario.role=='INACTIVO'}">
+                  <option value="ADMIN_ROLE">ADMIN_ROLE</option>
+                  <option value="USER_ROLE">USER_ROLE</option>
+                  <option value="VOCAL_ROLE">VOCAL_ROLE</option>
+                  <option value="INACTIVO">INACTIVO</option>
+
+                </select>
+
+              </td>
+
+              <td>
+                <button (click)="guardarUsuario( usuario )" class="btn btn-primary">
+                  <i class="fa fa-save"></i>
+                </button>
+
+                <button (click)="borrarUsuario( usuario )" class="btn btn-danger">
+                  <i class="fa fa-trash-o"></i>
+                </button>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+        <button (click)="cambiarDesde(-20)" class="btn btn-secondary">
+          Anteriores
+        </button>
+
+        <button (click)="cambiarDesde(20)" class="btn btn-secondary">
+          Siguientes
+        </button>
+
+
+
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<section id="team" class="bgLightGrey">
+  <div class="content-center">
+    <h3 class="card-title">Usuarios registrados ( <small>{{totalRegistros }}</small> )</h3>
+  </div>
+  <div class="container">
+
+    <div class="row">
+
+      <div *ngFor="let user of userService.users let usuario of usuarios"  class="col-md-4">
+        <div class="member-container">
+          <div class="member-details">
+
+            <img [src]="usuario.img | imagen" class="img-50 img-circle pointer " class="img-fluid" style="border-radius:10px;">
+
+            <h5 style="color: aliceblue;">{{user.nombre}}</h5>
+            <span>{{user.email}}</span><br>
+            <span>{{user.role}}</span><br>
+            <ul class="list-inline">
+              <li style="cursor: pointer;" class="list-inline-item"><a (click)="deleteUser(user._id, userForm)"><i
+                    class="fas fa-trash"></i></a></li>
+              <li data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;"
+                class="list-inline-item"><a (click)="editUser(user)"><i class="fas fa-pencil-alt"></i></a></li>
+              <div style="color: black;" class="modal fade" id="exampleModal" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Actualizar Usuario</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form #userForm="ngForm" (ngSubmit)="addUser(userForm)">
+                        <!-- THE Id's User -->
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+                        <label>Nombres</label>
+
+                        <div class="form-group">
+                          <input type="text" name="nombre" #name="ngModel" [(ngModel)]="userService.selectedUser.nombre"
+                            placeholder="Enter your FullName" class="form-control">
+                        </div>
+                        <br>
+                        <label>Email</label>
+                        <div class="form-group">
+                          <input type="text" name="email" #name="ngModel" [(ngModel)]="userService.selectedUser.email"
+                            placeholder="Enter your FullName" class="form-control">
+                        </div>
+
+
+                        <br>
+                        <label>Rol</label>
+
+                        <div class="form-group">
+                          <select [(ngModel)]="userService.selectedUser.role" name="role" class="form-control ">
+                            <option value="ADMIN_ROLE">ADMIN_ROLE</option>
+                            <option value="USER_ROLE">USER_ROLE</option>
+                            <option value="VOCAL_ROLE">VOCAL_ROLE</option>
+                            <option value="INACTIVO">INACTIVO</option>
+
+                          </select>
+
+                        </div>
+
+                        <br><br>
+                        <button class="btn btn-success" data-bs-dismiss="modal">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <br><br>
+
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                    <label for="">@2021 Social Soccer</label>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ul>
+          </div>
+          <img style="border-radius:10px;" src="../../../../assets/images/square2.png" class="img-fluid"
+          alt="member 1">
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>

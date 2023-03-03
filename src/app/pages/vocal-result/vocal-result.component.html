@@ -1,0 +1,187 @@
+<br><br>
+
+<div class="card  col-12 text-center p-3" style="background-image:linear-gradient(to right, #0648ff, #ffffff)">
+  <br>
+  <h5 class="card-title">Resultado final </h5>
+  <br>
+  <form #vocalResultForm="ngForm" (ngSubmit)="addVocalResult(vocalResultForm)">
+
+    <div class="row ">
+      <div class="col-md-4 offset-1">
+        <div class="card">
+          <div class="card-body p-4">
+
+
+            <!-- FORM -->
+            <!-- THE Id's VocalResult -->
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="vocalResultService.selectedVocalResult._id">
+
+            <br>
+            <label>Equipo</label>
+
+            <div class="form-group">
+              <select [(ngModel)]="vocalResultService.selectedVocalResult.team1" name="team1" class="form-control ">
+                <option *ngFor="let team of teamService.teams" value="{{team.nameOfTeam}}">{{team.nameOfTeam}}</option>
+              </select>
+
+            </div>
+            <br>
+            <label>Numero de tarjetas rojas</label>
+            <div class="form-group">
+              <input type="number" name="CardsRed1" #name="ngModel"
+                [(ngModel)]="vocalResultService.selectedVocalResult.CardsRed1" placeholder="Enter your CardsRed"
+                class="form-control">
+            </div>
+            <br>
+            <label>Numero de tarjetas amarillas</label>
+            <div class="form-group">
+              <input type="number" name="CardsYellow1" #name="ngModel"
+                [(ngModel)]="vocalResultService.selectedVocalResult.CardsYellow1" placeholder="Enter your CardsYellow"
+                class="form-control">
+            </div>
+            <br>
+            <label>Goles Totales</label>
+            <div class="form-group">
+              <input type="number" name="goals1" #name="ngModel"
+                [(ngModel)]="vocalResultService.selectedVocalResult.goals1" placeholder="Enter your goals totals"
+                class="form-control">
+            </div>
+            <br>
+            <label>Cambios</label>
+            <div class="form-group">
+              <select [(ngModel)]="vocalResultService.selectedVocalResult.changes1" name="changes1"
+                class="form-control ">
+                <option value="0">NINGUNO</option>
+                <option value="1">Primer Cambio</option>
+                <option value="2">Segundo Cambio</option>
+                <option value="3">Tercer Cambio</option>
+
+              </select>
+            </div>
+            <br>
+            <label>Observaciones</label>
+            <div class="form-group">
+              <input type="text" name="observation1" #name="ngModel"
+                [(ngModel)]="vocalResultService.selectedVocalResult.observation1" placeholder="Enter your observation"
+                class="form-control">
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"><br><br><br><br><br><br><br><br><br>
+        <h1>VS</h1>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body p-4">
+
+
+            <!-- FORM -->
+            <!-- THE Id's VocalResult -->
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="vocalResultService.selectedVocalResult._id">
+
+            <br>
+            <label>Equipo</label>
+
+            <div class="form-group">
+              <select [(ngModel)]="vocalResultService.selectedVocalResult.team2" name="team2" class="form-control ">
+                <option *ngFor="let team of teamService.teams" value="{{team.nameOfTeam}}">{{team.nameOfTeam}}</option>
+              </select>
+            </div>
+            <br>
+            <label>Numero de tarjetas rojas</label>
+            <div class="form-group">
+              <input type="number" name="CardsRed2" #name="ngModel"
+                [(ngModel)]="vocalResultService.selectedVocalResult.CardsRed2" placeholder="Enter your CardsRed"
+                class="form-control">
+            </div>
+            <br>
+            <label>Numero de tarjetas amarillas</label>
+            <div class="form-group">
+              <input type="number" name="CardsYellow2" #name="ngModel"
+                [(ngModel)]="vocalResultService.selectedVocalResult.CardsYellow2" placeholder="Enter your CardsYellow"
+                class="form-control">
+            </div>
+            <br>
+            <label>Goles Totales</label>
+            <div class="form-group">
+              <input type="number" name="goals2" #name="ngModel"
+                [(ngModel)]="vocalResultService.selectedVocalResult.goals2" placeholder="Enter your goals totals"
+                class="form-control">
+            </div>
+            <br>
+            <label>Cambios</label>
+            <div class="form-group">
+              <select [(ngModel)]="vocalResultService.selectedVocalResult.changes2" name="changes2"
+                class="form-control ">
+                <option value="0">NINGUNO</option>
+                <option value="1">Primer Cambio</option>
+                <option value="2">Segundo Cambio</option>
+                <option value="3">Tercer Cambio</option>
+
+              </select>
+            </div>
+
+            <br>
+            <label>Observaciones</label>
+            <div class="form-group">
+              <input type="text" name="observation2" #name="ngModel"
+                [(ngModel)]="vocalResultService.selectedVocalResult.observation2" placeholder="Enter your observation"
+                class="form-control">
+            </div>
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <button class="btn btn-secondary">Save</button>
+    <br><br>
+
+  </form>
+  <div>
+    <button class="btn btn-primary col-md-2" (click)="resetForm(vocalResultForm)">Clean</button>
+  </div>
+  <br><br><br>
+  <div class=" card col-12">
+
+    <table class="table table-striped">
+      <thead>
+        <th style="color: rgb(0, 0, 0);">Equipo1</th>
+        <th style="color: rgb(0, 0, 0);"> Goles</th>
+        <th style="color: rgb(0, 0, 0);">Observaciones</th>
+        <th style="color: rgb(0, 0, 0);">Equipo2</th>
+        <th style="color: rgb(0, 0, 0);"> Goles</th>
+        <th style="color: rgb(0, 0, 0);">Observaciones</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vocalResult of vocalResultService.vocalResults">
+          <td style="color: rgb(0, 0, 0);">{{ vocalResult.team1 }}</td>
+          <td style="color: rgb(0, 0, 0);">{{ vocalResult.goals1 }}</td>
+          <td style="color: rgb(0, 0, 0);">{{ vocalResult.observation1 }}</td>
+          <td style="color: rgb(0, 0, 0);">{{ vocalResult.team2 }}</td>
+          <td style="color: rgb(0, 0, 0);">{{ vocalResult.goals2 }}</td>
+          <td style="color: rgb(0, 0, 0);">{{ vocalResult.observation2 }}</td>
+
+          <td>
+            <button (click)="editVocalResult(vocalResult)" class="btn btn-primary">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+
+            <button (click)="deleteVocalResult(vocalResult._id, vocalResultForm)" class="btn btn-danger">
+              <i class="fa fa-trash-o"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <div class=" card col-md-8">
+
+
+</div>

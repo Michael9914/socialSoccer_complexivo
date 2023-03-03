@@ -1,0 +1,40 @@
+<section>
+  <div class="text-container">
+    <form ngNativeValidate class="form p-t-20" #f="ngForm" (ngSubmit)="guardar(f.value)">
+      <div class="form-group">
+        <h1 >Datos Del Usuario</h1>
+        <label for="exampleInputuname" style="color: honeydew;">Nombre de usuario</label>
+        <div class="input-group">
+          <div class="input-group-addon"><i class="ti-user"></i></div>
+          <input type="text" name="nombre" class="form-control col-6" placeholder="Nombre de usuario"
+            [(ngModel)]="usuario.nombre" required disabled>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1" style="color: honeydew;">Correo de usuario</label>
+        <div class="input-group">
+          <div class="input-group-addon"><i class="ti-email"></i></div>
+          <input type="email" name="email" class="form-control col-6" placeholder="Correo de usuario" required
+            [(ngModel)]="usuario.email" disabled>
+        </div>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary waves-effect waves-light m-r-10" hidden>
+        <i class="fa fa-save"></i> Guardar</button>
+
+    </form>
+      <div class="picture">
+          <div class="form-group ">
+            <input (change)="seleccionaImagen($event.target.files[0])" type="file" style="color: honeydew;">
+            <button (click)="cambiarImagen()" type="button" class="btn btn-primary waves-effect waves-light m-r-10">
+              <i class="fa fa-save"></i> Actualizar Foto</button>
+          </div>
+
+          <!-- <button class="hire-btn">Cambiar foto</button> -->
+      </div>
+  </div>
+  <img *ngIf="!imagenTemporal" [src]="usuario.img |imagen" class=" model" alt="model">
+  <img *ngIf="imagenTemporal" [src]="imagenTemporal" class=" model" alt="model">
+
+</section>

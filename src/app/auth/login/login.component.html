@@ -1,0 +1,70 @@
+<section class="vh-100" style="background-image: url('../../../assets/images/fondo-login.jfif');">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div>
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row">
+            <div class="col-md-12 col-lg-6 d-none d-md-block">
+              <img
+              src="../../../assets/images/login.png"
+              alt="login form"
+              class="img-fluid" style="border-radius: 1rem 0 0 1rem; width: 100%; height: 100%;"
+              />
+            </div>
+            <div class="col-md-5 col-lg-5 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <form ngNativeValidate #f="ngForm" class="form-horizontal form-material" (ngSubmit)="ingresar( f )">
+                  <h1>LOGIN</h1>
+                  <a href="javascript:void(0)" class="text-center db"></a>
+                  <div class="form-group m-t-40">
+                    <div class="col-xs-12">
+                      <input [ngModel]="email" name="email" class="form-control" type="email" required
+                        placeholder="Correo del usuario">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-xs-12">
+                      <input ngModel name="password" class="form-control" type="password" required placeholder="Contraseña">
+                    </div>
+                  </div>
+                  <div class="form-group ">
+                    <div class="col-md-12">
+                      <div class="checkbox checkbox-primary  p-t-1">
+                        <input [(ngModel)]="recuerdame" name="recuerdame" id="checkbox-signup" type="checkbox"
+                          class="filled-in chk-col-light-blue">
+                        <label for="checkbox-signup"> Recuérdame </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group text-center m-t-20">
+                    <div class="col-xs-12">
+                      <button class="btn btn-info btn-lg btn-block text-uppercase btn-rounded "
+                        type="submit">Ingresar</button><br>
+                    </div>
+                    <div class="col-sm-12 text-center">
+                      <label>No tienes cuenta?</label>
+                      <a routerLink="/register" class="text-info m-l-5"><b>Registrarse</b></a>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
+                      <div class="form-group m-b-0">
+
+                      </div>
+                    </div>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
