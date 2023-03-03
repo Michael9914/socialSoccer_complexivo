@@ -1,0 +1,111 @@
+/*
+Template Name: Admin Pro Admin
+Author: Wrappixel
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+/*
+Template Name: Admin Pro Admin
+Author: Wrappixel
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+/*Theme Colors*/
+/*bootstrap Color*/
+/*Light colors*/
+/*Normal Color*/
+/*Extra Variable*/
+/*******************
+/*Top bar
+*******************/
+.topbar {
+  background: #3d7641; }
+  .topbar .navbar-header {
+    background: #ffffff; }
+  .topbar .top-navbar .navbar-header .navbar-brand .light-logo {
+    display: none;
+    color: rgba(255, 255, 255, 0.8); }
+  .topbar .navbar-light .navbar-nav .nav-item > a.nav-link {
+    color: #ffffff !important; }
+    .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:hover, .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:focus {
+      color: rgba(255, 255, 255, 0.8) !important; }
+
+.hdr-nav-bar .navbar .navbar-nav > li.active > a {
+  border-color: #3d7641; }
+
+/*******************
+/*General Elements
+*******************/
+.lstick {
+  background: #3d7641; }
+
+a.link:hover, a.link:focus {
+  color: #3d7641 !important; }
+
+.bg-theme {
+  background-color: #3d7641 !important; }
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #3d7641;
+  border-color: #3d7641; }
+
+.right-sidebar .rpanel-title {
+  background: #3d7641; }
+
+.stylish-table tbody tr:hover, .stylish-table tbody tr.active {
+  border-left: 4px solid #3d7641; }
+
+.text-themecolor {
+  color: #3d7641 !important; }
+
+.profile-tab li a.nav-link.active,
+.customtab li a.nav-link.active {
+  border-bottom: 2px solid #3d7641;
+  color: #3d7641; }
+
+.profile-tab li a.nav-link:hover,
+.customtab li a.nav-link:hover {
+  color: #3d7641; }
+
+/*******************
+/*Buttons
+*******************/
+.btn-themecolor,
+.btn-themecolor.disabled {
+  background: #3d7641;
+  color: #ffffff;
+  border: 1px solid #3d7641; }
+  .btn-themecolor:hover,
+  .btn-themecolor.disabled:hover {
+    background: #3d7641;
+    opacity: 0.7;
+    border: 1px solid #3d7641; }
+  .btn-themecolor.active, .btn-themecolor:focus,
+  .btn-themecolor.disabled.active,
+  .btn-themecolor.disabled:focus {
+    background: #028ee1; }
+
+/*******************
+/*sidebar navigation
+*******************/
+.label-themecolor {
+  background: #3d7641; }
+
+.sidebar-nav > ul > li.active > a {
+  color: #3d7641;
+  border-color: #3d7641; }
+  .sidebar-nav > ul > li.active > a i {
+    color: #3d7641; }
+
+.sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
+  color: #3d7641; }
+  .sidebar-nav ul li a.active i, .sidebar-nav ul li a:hover i {
+    color: #3d7641; }
+
+.sidebar-nav > ul > li > a i {
+  color: #a6b7bf; }
