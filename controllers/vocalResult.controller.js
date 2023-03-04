@@ -19,8 +19,8 @@ vocalResultCtrl.createVocalResult = async (req, res, next) => {
         goals2: req.body.goals2,
         changes1: req.body.changes1,
         changes2: req.body.changes2,
-        observation1: req.body.observation,
-        observation2: req.body.observation,
+        observation1: req.body.observation1,
+        observation2: req.body.observation2,
 
     });
     await vocalResult.save();
