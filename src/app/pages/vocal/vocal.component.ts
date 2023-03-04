@@ -30,7 +30,7 @@ export class VocalComponent implements OnInit {
         this.resetForm(form);
         this.getVocalias();
       });
-    }
+    }else{
       Swal.fire('Vocalia', `Se creo exitosamente`, 'success');
 
       this.vocalService.postVocalia(form.value).subscribe((res) => {
@@ -38,6 +38,7 @@ export class VocalComponent implements OnInit {
         this.resetForm(form);
       });
     }
+  }
 
 
   getTeams() {
